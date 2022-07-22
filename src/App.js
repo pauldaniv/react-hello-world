@@ -12,7 +12,7 @@ function App() {
         <div>
           <MyComponent name="test"/>
           <button onClick={doStuff}>
-            Do smthn
+            Do something!
           </button>
         </div>
 
