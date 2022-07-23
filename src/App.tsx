@@ -10,12 +10,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          <MyComponent name="test"/>
-          <button onClick={doStuff}>
-            Do something!
-          </button>
+          <MyComponent test="test"/>
         </div>
-
+        <button onClick={doStuff}>
+          Do something!
+        </button>
       </header>
     </div>
   );
