@@ -9,8 +9,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <>User List</>
         <div>
-          <MyComponent test="test"/>
+          <MyComponent/>
         </div>
         <button onClick={doStuff}>
           Do something!
