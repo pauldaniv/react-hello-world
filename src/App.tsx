@@ -1,21 +1,21 @@
 import './App.css';
-import MyComponent from "./MyComponent";
-
-function doStuff() {
-  console.log("there")
-}
+import Profile from "./Profile";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <>User List</>
         <div>
-          <MyComponent/>
+          <div>User List
+          </div>
+          <Profile/>
         </div>
-        <button onClick={doStuff}>
-          Do something!
-        </button>
+        <div>
+          <LoginButton/>
+          <LogoutButton/>
+        </div>
       </header>
     </div>
   );

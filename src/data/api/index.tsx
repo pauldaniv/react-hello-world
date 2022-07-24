@@ -11,7 +11,7 @@ export interface ApiResponse {
   } | null
 }
 
-export default class Api {
+export default abstract class Api {
   protected baseUrl: string
 
   constructor(baseUrl: string) {

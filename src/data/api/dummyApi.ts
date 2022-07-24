@@ -9,9 +9,9 @@ export interface User {
 }
 
 export class DummyApi extends Api {
-  getUsers(limit: number = 10): Promise<ApiResponse> {
+  getUsers(limit: number = 10 ): Promise<ApiResponse> {
     return this.get(`/user?limit=${limit}`, {"app-id": "62dc24ce5ee3a33faa3572ec"})
   }
 }
 
-export const dummyApi = new DummyApi("http://localhost:8000/data/v1")
+export const dummyApi = new DummyApi("http://localhost:8000")

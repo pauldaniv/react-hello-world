@@ -1,30 +1,23 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {dummyApi, User} from "./data/api/dummyApi";
+import UsersComponent from "./Users";
 
 export interface MyData {
-  users?: User[]
+  limit: number
 }
 
-const MyComponent: React.FC<MyData> = ({users: dummyUsers}): JSX.Element => {
+const MyComponent: React.FC<MyData> = ({limit}): JSX.Element => {
   const [users, setUsers] = useState<User[]>()
   const [error, setError] = useState<boolean>(false)
 
-  const getUsers = useCallback(async () => {
-    try {
-      const {data: dummyUsers} = await dummyApi.getUsers()
-      setUsers(dummyUsers)
-    } catch {
-      setError(true)
-    }
-  }, [])
+  const getUsers = useCallback(() => {
+      dummyApi.getUsers(limit)
+        .then(it => setUsers(it.data.data))
+        .catch(() => setError(true))
+    }, [limit]
+  )
 
-  useEffect(() => {
-    if (dummyUsers) {
-      setUsers(dummyUsers)
-    } else {
-      getUsers()
-    }
-  }, [])
+  useEffect(getUsers, [getUsers])
 
   if (error) {
     return (
@@ -34,12 +27,7 @@ const MyComponent: React.FC<MyData> = ({users: dummyUsers}): JSX.Element => {
   if (users) {
     return (
       <>
-        {users.map(user => (
-          <>
-            <h2>id: {user.id}</h2>
-            <h2>name: {user.firstName}</h2>
-          </>))
-        }
+        <UsersComponent userList={users}/>
       </>
     )
   }
