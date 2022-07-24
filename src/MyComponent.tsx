@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useCallback} from "react";
-import {dummyApi, User} from "./data/api/dummyApi";
-import UsersComponent from "./Users";
+import React, {useState, useEffect, useCallback} from "react"
+import {dummyApi, User} from "./data/api/dummyApi"
+import UsersComponent from "./Users"
 
 export interface MyData {
   limit: number
