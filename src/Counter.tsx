@@ -7,6 +7,8 @@ export const Counter = () => {
   const [ secondsLeft, setSecondsLeft ] = useState(5)
   const [ type, setType ] = useState<'get_ready' | 'strain' | 'relax' | 'finish'>('get_ready')
 
+  const lastSecond = 1
+
   const restart = () => {
     setType('get_ready')
     setSecondsLeft(5)
@@ -18,12 +20,12 @@ export const Counter = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       console.log('tick')
-      if (type === 'get_ready' && secondsLeft <= 0) {
+      if (type === 'get_ready' && secondsLeft <= lastSecond) {
         setTitle('Strain')
         setAction('Strain for the next')
         setSecondsLeft(5)
         setType('strain')
-      } else if (type === 'strain' && secondsLeft <= 0) {
+      } else if (type === 'strain' && secondsLeft <= lastSecond) {
         if (repetitions <= 1) {
           setType('finish')
         } else {
@@ -33,13 +35,13 @@ export const Counter = () => {
           setType('relax')
           setRepetitions(repetitions - 1)
         }
-      } else if (type === 'relax' && secondsLeft <= 0) {
+      } else if (type === 'relax' && secondsLeft <= lastSecond) {
         setTitle('Strain')
         setSecondsLeft(5)
         setAction('Strain for the next')
         setType('strain')
       } else {
-        setSecondsLeft(secondsLeft - 1)
+        setSecondsLeft(secondsLeft - lastSecond)
       }
     }, 1000);
     if (type === 'finish') {
