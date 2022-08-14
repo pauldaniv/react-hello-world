@@ -1,0 +1,11 @@
+server {
+    listen $PORT;
+    root   /www/react-hello-world/html;
+    index  index.html index.htm;
+
+    location / {
+        # to redirect all the requests to index.html,
+        # useful when you are using react-router
+        try_files $uri /index.html;
+    }
+}

@@ -38,7 +38,6 @@ export const Counter = () => {
         setSecondsLeft(5)
         setAction('Strain for the next')
         setType('strain')
-        setRepetitions(repetitions - 1)
       } else {
         setSecondsLeft(secondsLeft - 1)
       }
