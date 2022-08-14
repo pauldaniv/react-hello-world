@@ -17,22 +17,22 @@ export const Counter = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log(type)
-      if (type === 'finish') return;
+      console.log('tick')
       if (type === 'get_ready' && secondsLeft <= 0) {
         setTitle('Strain')
         setAction('Strain for the next')
         setSecondsLeft(5)
         setType('strain')
       } else if (type === 'strain' && secondsLeft <= 0) {
-        setTitle('Relaxing')
-        setAction('Relaxing for the next')
-        setSecondsLeft(10)
-        setType('relax')
-        if (repetitions <= 0) {
+        if (repetitions <= 1) {
           setType('finish')
+        } else {
+          setTitle('Relax')
+          setAction('Relaxing for the next')
+          setSecondsLeft(10)
+          setType('relax')
+          setRepetitions(repetitions - 1)
         }
-        setRepetitions(repetitions - 1)
       } else if (type === 'relax' && secondsLeft <= 0) {
         setTitle('Strain')
         setSecondsLeft(5)
