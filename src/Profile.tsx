@@ -6,10 +6,6 @@ import LogoutButton from "./LogoutButton"
 const Profile: React.FC = (): JSX.Element => {
   const { user, isAuthenticated } = useAuth0();
 
-  // if (isLoading) {
-  //   return ( <div>Loading ...</div> );
-  // }
-
   if (!isAuthenticated) return ( <>
     <div>
       No session

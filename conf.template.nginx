@@ -1,6 +1,6 @@
 server {
     listen $PORT;
-    root   /www/react-hello-world/html;
+    root   /www/$APP_NAME/html;
     index  index.html index.htm;
 
     location / {

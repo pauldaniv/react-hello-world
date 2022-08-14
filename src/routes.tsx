@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Counter from "./Counter"
 import App from "./App"
 import Header from "./Header"
+import "./App.css"
 
 export default function AppRoutes() {
   return (
-    <Router >
+    <Router>
       <div className="App">
         <Header/>
         <header className="App-header">

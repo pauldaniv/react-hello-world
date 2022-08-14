@@ -2,19 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 import Routes from "./routes"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Auth0Provider
-    domain="dev-8g-kk1i9.eu.auth0.com"
-    clientId="eh9RgxDhGSZ54p187F3JLsJhzz517kMv"
-    redirectUri={ window.location.origin }>
+  // TODO: enable back when needed
+  // <Auth0Provider
+  //   domain="dev-8g-kk1i9.eu.auth0.com"
+  //   clientId="eh9RgxDhGSZ54p187F3JLsJhzz517kMv"
+  //   redirectUri={ window.location.origin }>
     <Routes/>
-  </Auth0Provider>
+  // </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
